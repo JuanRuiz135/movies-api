@@ -1,7 +1,13 @@
 const boom =  require('@hapi/boom');
+const joi = require('joi');
 
-function validate() {
-    return false;
+function validate(data, schema) {
+    // If schema is not a joi schema, convert it to joi schema
+    // Otherwise return schema
+    schema = !joi.isSchema(schema) ? joib.object(schema) : schema;
+    // Validate it
+    const { error } = schema.validate(data);
+    return error;
 }
 
 function validationHandler(schema, check="body") {

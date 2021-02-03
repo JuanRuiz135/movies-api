@@ -5,7 +5,7 @@ const { moviesMock, MoviesServiceMock } = require('../utils/mocks/movies');
 const testServer = require('../utils/testServer');
 
 // describe is what the console logs
-describe('routes - movies', function () {
+describe('Routes - movies', function () {
     const route = proxyquire('../routes/movies', {
         '../services/movies': MoviesServiceMock
     });
